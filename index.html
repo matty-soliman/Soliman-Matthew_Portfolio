@@ -1,128 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Soliman - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matthew Soliman — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">MS</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Matthew Soliman</h1>
-            <p class="subtitle">Software Developer & Designer</p>
-            <p class="description">Building digital experiences that matter</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-    </section>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__brand">MS<span class="dot">_</span></div>
+  <nav class="nav__links">
+    <a href="#about">01 · About</a>
+    <a href="#experience">02 · Experience</a>
+    <a href="#projects">03 · Projects</a>
+    <a href="#skills">04 · Skills</a>
+    <a href="#contact">05 · Contact</a>
+  </nav>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+</header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a passionate software developer with a keen eye for design. I love creating elegant solutions to complex problems and building user-friendly applications.</p>
-                    <p>With experience in web development, mobile apps, and system design, I bring ideas to life through clean code and intuitive interfaces.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============ HERO (terminal boot) ============ -->
+<section class="hero" id="top">
+  <div class="hero__trace" aria-hidden="true"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">// system boot — engineer profile loaded</p>
+    <h1 class="hero__title">Matthew Soliman</h1>
+    <p class="hero__role">
+      <span id="typedRole"></span><span class="cursor">|</span>
+    </p>
+    <p class="hero__desc">
+      Computer Engineering graduate wiring together hardware, WordPress builds, and QA rigor —
+      based in Manila, Philippines.
+    </p>
+    <div class="hero__actions">
+      <a href="#projects" class="btn btn--primary">View Projects</a>
+      <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+    </div>
+  </div>
+</section>
 
-    <section id="skills" class="section alt-bg">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Frontend</h3>
-                    <p>HTML, CSS, JavaScript, React, Vue.js</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Backend</h3>
-                    <p>Node.js, Python, Java, SQL</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools</h3>
-                    <p>Git, Docker, AWS, VS Code</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Design</h3>
-                    <p>Figma, Adobe XD, UI/UX</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="pcb-divider" aria-hidden="true"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 H400 L440 5 H760 L800 20 H1200" /><circle cx="440" cy="5" r="4"/><circle cx="800" cy="20" r="4"/></svg></div>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Project One</h3>
-                    <p>A web application built with modern technologies</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Project Two</h3>
-                    <p>Mobile-first responsive design implementation</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Project Three</h3>
-                    <p>Full-stack application with database integration</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <p class="section__tag">01 · About</p>
+  <div class="about__grid">
+    <div class="about__text">
+      <h2>Built for troubleshooting, tuned for testing.</h2>
+      <p>
+        I'm a Computer Engineering graduate from Colegio de San Gabriel Arcangel with hands-on experience
+        across WordPress development, technical support, and QA testing. I like taking things apart —
+        websites, laptops, circuits — to understand exactly how they work, then putting them back together
+        better than I found them.
+      </p>
+      <p>
+        My work spans freelance web builds for real clients, an internship diagnosing hardware and testing
+        POS systems, and a handful of embedded electronics projects that taught me to think in both
+        code and circuits. I'm eager to keep learning new tools and contribute to high-quality web
+        solutions.
+      </p>
+    </div>
+    <div class="about__card">
+      <div class="card__row"><span>Location</span><span>Manila, Philippines</span></div>
+      <div class="card__row"><span>Degree</span><span>BS Computer Engineering</span></div>
+      <div class="card__row"><span>Graduated</span><span>2026</span></div>
+      <div class="card__row"><span>Focus</span><span>WordPress · QA · Hardware</span></div>
+      <div class="card__row"><span>Status</span><span class="status status--live">Open to work</span></div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="section alt-bg">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <p class="contact-text">Feel free to reach out for collaborations or just a friendly hello!</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>Email:</strong>
-                        <a href="mailto:matthew@example.com">matthew@example.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>LinkedIn:</strong>
-                        <a href="#">linkedin.com/in/matthewsoliman</a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>GitHub:</strong>
-                        <a href="#">github.com/matthewsoliman</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="pcb-divider" aria-hidden="true"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 H300 L340 35 H900 L940 20 H1200" /><circle cx="340" cy="35" r="4"/><circle cx="940" cy="20" r="4"/></svg></div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Matthew Soliman. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <p class="section__tag">02 · Work Experience</p>
+  <h2 class="section__title">Log of deployments</h2>
 
-    <script src="script.js"></script>
+  <div class="timeline">
+    <div class="timeline__item">
+      <div class="timeline__meta">
+        <span class="timeline__date">Jan – Feb 2026</span>
+        <span class="status status--live">Internship</span>
+      </div>
+      <h3>Technical Support &amp; POS QA Tester</h3>
+      <p class="timeline__org">Courtesy Point Technologies, Inc. — Makati City</p>
+      <ul>
+        <li>Diagnosed and resolved laptop hardware issues.</li>
+        <li>Configured development environments using Git, GitHub, Apache Tomcat, and MySQL.</li>
+        <li>Performed manual and regression testing for CPTI CMS in local and cloud environments.</li>
+        <li>Verified POS transactions against generated receipts for data accuracy.</li>
+        <li>Reported software defects and documented test cases using Google Workspace.</li>
+        <li>Assisted in validating production and staging deployments.</li>
+      </ul>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__meta">
+        <span class="timeline__date">June – August 2024</span>
+        <span class="status status--shipped">Freelance</span>
+      </div>
+      <h3>Web Developer — WordPress</h3>
+      <p class="timeline__org">Hotel Savano &amp; Arangkada San Josenio — San Jose del Monte, Bulacan</p>
+      <ul>
+        <li>Developed and maintained WordPress websites using Elementor.</li>
+        <li>Designed responsive pages optimized for desktop and mobile devices.</li>
+        <li>Configured domain, hosting, SSL, and basic website security.</li>
+        <li>Improved website performance, navigation, and user experience.</li>
+        <li>Added booking information, contact forms, news, events, and image galleries.</li>
+        <li>Worked directly with clients to implement requested website updates.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="pcb-divider" aria-hidden="true"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 H400 L440 5 H760 L800 20 H1200" /><circle cx="440" cy="5" r="4"/><circle cx="800" cy="20" r="4"/></svg></div>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <p class="section__tag">03 · Projects</p>
+  <h2 class="section__title">Test cases that shipped</h2>
+
+  <div class="projects__grid">
+
+    <article class="project-card">
+      <div class="project-card__head">
+        <span class="status status--shipped">DEPLOYED</span>
+        <span class="project-card__num">CAPSTONE</span>
+      </div>
+      <h3>Solar-Powered Coin-Based Phone Charging Station with RFID Access</h3>
+      <p>
+        A solar-powered, coin-operated phone charging station with RFID authentication for
+        secure access, automated charging control, and real-time performance monitoring.
+      </p>
+      <div class="tags">
+        <span>Arduino Mega</span><span>C++</span><span>RFID</span><span>Servo Motor</span><span>LCD</span><span>Solar Power</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__head">
+        <span class="status status--shipped">DEPLOYED</span>
+        <span class="project-card__num">IoT</span>
+      </div>
+      <h3>IoT Smart Room Monitoring System with Fire Alert &amp; Cloud Integration</h3>
+      <p>
+        Real-time environmental sensing with cloud data logging via ThingSpeak, plus hazard
+        detection that triggers local alarms and cloud notifications.
+      </p>
+      <div class="tags">
+        <span>Arduino R4 WiFi</span><span>C++</span><span>ThingSpeak</span><span>DHT Sensor</span><span>MQ Gas Sensor</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__head">
+        <span class="status status--shipped">DEPLOYED</span>
+        <span class="project-card__num">ROBOTICS</span>
+      </div>
+      <h3>Obstacle Avoidance Autonomous Robot</h3>
+      <p>
+        An autonomous robot that navigates using ultrasonic distance sensing, with motor
+        movement controlled through an L298N driver.
+      </p>
+      <div class="tags">
+        <span>Arduino Uno</span><span>C++</span><span>HC-SR04</span><span>L298N</span><span>DC Motors</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="pcb-divider" aria-hidden="true"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 H300 L340 35 H900 L940 20 H1200" /><circle cx="340" cy="35" r="4"/><circle cx="940" cy="20" r="4"/></svg></div>
+
+<!-- ============ SKILLS ============ -->
+<section class="section" id="skills">
+  <p class="section__tag">04 · Skills</p>
+  <h2 class="section__title">Toolchain</h2>
+
+  <div class="skills__grid">
+    <div class="skill-block">
+      <h3>Programming &amp; Database</h3>
+      <div class="tags">
+        <span>HTML</span><span>CSS</span><span>C++</span><span>MySQL</span><span>Apache</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>Tools &amp; Platforms</h3>
+      <div class="tags">
+        <span>GitHub</span><span>Figma</span><span>WordPress</span><span>Odoo</span><span>Elementor</span><span>ThingSpeak</span><span>Arduino IDE</span><span>Windsurf IDE</span><span>Visual Studio IDE</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>Hardware</h3>
+      <div class="tags">
+        <span>PC/Laptop Maintenance</span><span>Hardware Diagnostics</span><span>Component Replacement</span><span>BIOS Configuration</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>QA / Testing</h3>
+      <div class="tags">
+        <span>Functional Testing</span><span>Test Case Execution</span><span>Test Documentation</span><span>Manual Testing</span><span>Regression Testing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="edu-interest">
+    <div class="edu-interest__col">
+      <h3>Education</h3>
+      <div class="card__row"><span>Colegio de San Gabriel Arcangel</span><span>BS Computer Engineering, 2022 – 2026</span></div>
+      <div class="card__row"><span>Informatics College Manila</span><span>Senior High — ABM Strand, 2018 – 2020</span></div>
+    </div>
+    <div class="edu-interest__col">
+      <h3>Interests</h3>
+      <div class="tags">
+        <span>AI</span><span>Robotics</span><span>Web Design</span><span>Networking</span><span>Hardware</span><span>Arduino</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pcb-divider" aria-hidden="true"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 H400 L440 5 H760 L800 20 H1200" /><circle cx="440" cy="5" r="4"/><circle cx="800" cy="20" r="4"/></svg></div>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section--contact" id="contact">
+  <p class="section__tag">05 · Contact</p>
+  <h2 class="section__title">Let's connect the circuit.</h2>
+  <p class="contact__desc">Open to WordPress, QA, and junior developer roles — reach out any time.</p>
+  <div class="contact__grid">
+    <a class="contact__item" href="mailto:soliman.matthew.j@gmail.com">
+      <span class="contact__label">Email</span>
+      <span class="contact__value">soliman.matthew.j@gmail.com</span>
+    </a>
+    <a class="contact__item" href="tel:+639121910304">
+      <span class="contact__label">Phone</span>
+      <span class="contact__value">(+63) 912-191-0304</span>
+    </a>
+    <div class="contact__item">
+      <span class="contact__label">Location</span>
+      <span class="contact__value">Manila, Philippines</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Matthew Soliman. Built with HTML, CSS &amp; JS.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
