@@ -190,6 +190,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing:
   .hero__text { max-width: 100%; }
   .hero__actions { justify-content: center; }
   .hero__photo { order: -1; }
+  .hero__photo-frame {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__photo-frame {
+    width: 220px;
+    height: 220px;
+  }
 }
 
 .hero__eyebrow {
