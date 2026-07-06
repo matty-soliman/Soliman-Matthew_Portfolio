@@ -13,14 +13,14 @@
 <!-- ============ NAV ============ -->
 <header class="nav">
   <div class="nav__brand">MS<span class="dot">_</span></div>
-  <nav class="nav__links">
+  <nav class="nav__links" id="navLinks">
     <a href="#about">01 · About</a>
     <a href="#experience">02 · Experience</a>
     <a href="#projects">03 · Projects</a>
     <a href="#skills">04 · Skills</a>
     <a href="#contact">05 · Contact</a>
   </nav>
-  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">☰</button>
 </header>
 
 <!-- ============ HERO (terminal boot) ============ -->
@@ -77,7 +77,7 @@
       <div class="card__row"><span>Location</span><span>Manila, Philippines</span></div>
       <div class="card__row"><span>Degree</span><span>BS Computer Engineering</span></div>
       <div class="card__row"><span>Graduated</span><span>2026</span></div>
-      <div class="card__row"><span>Focus</span><span>Web · QA · Hardware</span></div>
+      <div class="card__row"><span>Focus</span><span>WordPress · QA · Hardware</span></div>
       <div class="card__row"><span>Status</span><span class="status status--live">Open to work</span></div>
     </div>
   </div>
@@ -136,7 +136,7 @@
 
   <div class="projects__grid">
 
-    <article class="project-card">
+    <article class="project-card" data-project="solar-charging">
       <div class="project-card__head">
         <span class="status status--shipped">DEPLOYED</span>
         <span class="project-card__num">CAPSTONE</span>
@@ -151,7 +151,7 @@
       </div>
     </article>
 
-    <article class="project-card">
+    <article class="project-card" data-project="iot-monitoring">
       <div class="project-card__head">
         <span class="status status--shipped">DEPLOYED</span>
         <span class="project-card__num">IoT</span>
@@ -166,7 +166,7 @@
       </div>
     </article>
 
-    <article class="project-card">
+    <article class="project-card" data-project="obstacle-robot">
       <div class="project-card__head">
         <span class="status status--shipped">DEPLOYED</span>
         <span class="project-card__num">ROBOTICS</span>
@@ -178,6 +178,56 @@
       </p>
       <div class="tags">
         <span>Arduino Uno</span><span>C++</span><span>HC-SR04</span><span>L298N</span><span>DC Motors</span>
+      </div>
+    </article>
+
+    <article class="project-card" data-project="hotel-savano">
+      <div class="project-card__head">
+        <span class="status status--live">LIVE</span>
+        <span class="project-card__num">WORDPRESS</span>
+      </div>
+      <h3>Hotel Savano — Hotel Booking Website</h3>
+      <p>
+        Designed and built a responsive WordPress site using Elementor, including booking
+        information, contact forms, and image galleries, with domain, hosting, SSL, and
+        security configured end-to-end.
+      </p>
+      <div class="tags">
+        <span>WordPress</span><span>Elementor</span><span>Responsive Design</span><span>Client Work</span>
+      </div>
+      <a href="https://hotelsavano.ph/" target="_blank" rel="noopener" class="btn btn--ghost project-card__link">Visit Site →</a>
+    </article>
+
+    <article class="project-card" data-project="arangkada-sj">
+      <div class="project-card__head">
+        <span class="status status--live">LIVE</span>
+        <span class="project-card__num">WORDPRESS</span>
+      </div>
+      <h3>Arangkada San Josenio — Business Website</h3>
+      <p>
+        Built and maintained a responsive WordPress site for desktop and mobile, adding
+        news, events, and gallery sections while working directly with the client on
+        ongoing updates.
+      </p>
+      <div class="tags">
+        <span>WordPress</span><span>Elementor</span><span>Responsive Design</span><span>Client Work</span>
+      </div>
+      <a href="http://arangkadasj.ph/" target="_blank" rel="noopener" class="btn btn--ghost project-card__link">Visit Site →</a>
+    </article>
+
+    <article class="project-card" data-project="coffee-shop">
+      <div class="project-card__head">
+        <span class="status status--progress">IN PROGRESS</span>
+        <span class="project-card__num">PERSONAL</span>
+      </div>
+      <h3>Coffee Shop Website (WordPress)</h3>
+      <p>
+        A personal WordPress project built and hosted locally — a coffee shop website
+        exploring menu layouts, branding, and page design. Still a work in progress,
+        with more to add before it goes live.
+      </p>
+      <div class="tags">
+        <span>WordPress</span><span>Elementor</span><span>Personal Project</span>
       </div>
     </article>
 
@@ -259,6 +309,59 @@
 <footer class="footer">
   <p>&copy; <span id="year"></span> Matthew Soliman. Built with HTML, CSS &amp; JS.</p>
 </footer>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal__backdrop" id="modalBackdrop"></div>
+  <div class="modal__content">
+    <button class="modal__close" id="modalClose" aria-label="Close modal">&times;</button>
+    <div class="modal__grid">
+      <!-- Left Side: Gallery -->
+      <div class="modal__gallery-side">
+        <div class="modal__main-image">
+          <img id="modalMainImage" src="" alt="Project main image">
+        </div>
+        <div class="modal__thumbnails" id="modalThumbnails">
+          <!-- Thumbnails will be dynamically added -->
+        </div>
+      </div>
+      
+      <!-- Right Side: Project Details -->
+      <div class="modal__details-side">
+        <div class="modal__head">
+          <h2 class="modal__title" id="modalTitle">Project Title</h2>
+          <div class="modal__meta" id="modalMeta">
+            <span class="status status--live">LIVE</span>
+            <span class="project-card__num">CATEGORY</span>
+          </div>
+        </div>
+        
+        <div class="modal__role-summary" id="modalRoleSummary">
+          <p>Role summary goes here.</p>
+        </div>
+        
+        <div class="modal__section">
+          <h3 class="modal__section-title">My Core Contributions</h3>
+          <ul id="modalContributions">
+            <li>Contribution 1</li>
+            <li>Contribution 2</li>
+          </ul>
+        </div>
+        
+        <div class="modal__section">
+          <h3 class="modal__section-title">Technologies Used</h3>
+          <div class="tags" id="modalTags">
+            <span>Tag 1</span><span>Tag 2</span><span>Tag 3</span>
+          </div>
+        </div>
+        
+        <div class="modal__actions" id="modalActions">
+          <a href="#" class="btn btn--primary" id="modalLink" target="_blank" rel="noopener">Visit Live Site →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
