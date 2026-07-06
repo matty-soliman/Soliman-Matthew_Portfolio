@@ -322,7 +322,6 @@ function openModal(projectId) {
     modalActions.style.display = "none";
   }
   
-  modal.hidden = false;
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
 
@@ -336,9 +335,8 @@ function closeModal() {
   document.body.style.overflow = "";
   document.removeEventListener("keydown", trapFocus);
 
-  // wait for the close transition, then hide from AT and restore focus
+  // wait for the close transition, then restore focus
   setTimeout(() => {
-    modal.hidden = true;
     if (lastFocusedEl) lastFocusedEl.focus();
   }, 300);
 }
@@ -370,5 +368,31 @@ modalBackdrop.addEventListener("click", closeModal);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal.classList.contains("active")) {
     closeModal();
+  }
+});
+
+// ===== Work-in-progress notice =====
+const noticeModal = document.getElementById("noticeModal");
+const noticeBackdrop = document.getElementById("noticeBackdrop");
+const noticeClose = document.getElementById("noticeClose");
+const noticeDismiss = document.getElementById("noticeDismiss");
+
+function closeNotice() {
+  noticeModal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+if (noticeModal) {
+  noticeModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+if (noticeClose) noticeClose.addEventListener("click", closeNotice);
+if (noticeBackdrop) noticeBackdrop.addEventListener("click", closeNotice);
+if (noticeDismiss) noticeDismiss.addEventListener("click", closeNotice);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && noticeModal && noticeModal.classList.contains("active")) {
+    closeNotice();
   }
 });

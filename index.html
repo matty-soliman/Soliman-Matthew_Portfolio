@@ -311,7 +311,7 @@
 </footer>
 
 <!-- ============ PROJECT MODAL ============ -->
-<div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+<div class="modal" id="projectModal">
   <div class="modal__backdrop" id="modalBackdrop"></div>
   <div class="modal__content">
     <button class="modal__close" id="modalClose" aria-label="Close modal">&times;</button>
@@ -360,6 +360,25 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ============ SITE NOTICE MODAL ============ -->
+<div class="modal" id="noticeModal">
+  <div class="modal__backdrop" id="noticeBackdrop"></div>
+  <div class="modal__content notice__content">
+    <button class="modal__close" id="noticeClose" aria-label="Close notice">&times;</button>
+    <div class="notice__alert">
+      <span class="notice__alert-dot"></span>
+      <span class="notice__alert-label">UNDER CONSTRUCTION</span>
+    </div>
+    <p class="notice__eyebrow">// system notice</p>
+    <h2 class="notice__title" id="noticeTitle">Work in progress</h2>
+    <p class="notice__text">
+      This portfolio is still being updated. I'm currently adding the websites I've
+      completed and refining the layout and content to provide a better overview of my work.
+    </p>
+    <button class="btn btn--primary notice__dismiss" id="noticeDismiss">Got it →</button>
   </div>
 </div>
 
