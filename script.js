@@ -77,10 +77,9 @@ const projectData = {
       "Developed automated charging control with safety features"
     ],
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop"
+      "images/Capstone/solar_1.jpg",
+      "images/Capstone/solar_2.jpg",
+      "images/Capstone/solar_3.jpg"
     ],
     link: null
   },
@@ -100,10 +99,10 @@ const projectData = {
       "Built local alarm system with visual and audio indicators"
     ],
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop"
+      "images/ALARM/alar_2.jpg",
+      "images/ALARM/alarm_1.png",
+      "images/ALARM/alarm_3.jfif",
+      "images/ALARM/alarm_4.png"
     ],
     link: null
   },
@@ -123,10 +122,10 @@ const projectData = {
       "Optimized sensor placement for maximum detection range"
     ],
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop"
+      "images/Automated/car_1.jpg",
+      "images/Automated/car_2.jpg",
+      "images/Automated/car_3.jpg",
+      "images/Automated/car_4.jpg"
     ],
     link: null
   },
@@ -146,12 +145,7 @@ const projectData = {
       "Created responsive layouts optimized for desktop and mobile",
       "Provided ongoing maintenance and client support"
     ],
-    images: [
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&h=500&fit=crop"
-    ],
+    images: [],
     link: "https://hotelsavano.ph/"
   },
   "arangkada-sj": {
@@ -170,12 +164,7 @@ const projectData = {
       "Worked directly with client on content updates and improvements",
       "Provided training for client to manage content independently"
     ],
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&h=500&fit=crop"
-    ],
+    images: [],
     link: "http://arangkadasj.ph/"
   },
   "coffee-shop": {
@@ -193,12 +182,7 @@ const projectData = {
       "Experimenting with Elementor widgets and custom CSS",
       "Planning for future features: online ordering, reservations"
     ],
-    images: [
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&h=500&fit=crop"
-    ],
+    images: [],
     link: null
   }
 };
