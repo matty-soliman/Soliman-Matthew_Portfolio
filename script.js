@@ -59,76 +59,49 @@ if (navToggle && navLinks) {
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// ===== Active nav link on scroll =====
+const sections = document.querySelectorAll("section[id]");
+const navLinksItems = document.querySelectorAll(".nav__links a");
+
+function updateActiveNav() {
+  const scrollY = window.scrollY;
+  
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
+    
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      navLinksItems.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveNav);
+updateActiveNav(); // Run on load
+
+// ===== Shared Modal Helpers =====
+function openGenericModal(modalEl, focusEl = null) {
+  modalEl.classList.add("active");
+  document.body.style.overflow = "hidden";
+  if (focusEl) focusEl.focus();
+}
+
+function closeGenericModal(modalEl, restoreFocusEl = null) {
+  modalEl.classList.remove("active");
+  document.body.style.overflow = "";
+  if (restoreFocusEl) {
+    setTimeout(() => restoreFocusEl.focus(), 300);
+  }
+}
+
 // ===== Project Modal =====
 const projectData = {
-  "solar-charging": {
-    title: "Solar-Powered Coin-Based Phone Charging Station with RFID Access",
-    status: "DEPLOYED",
-    statusClass: "status--shipped",
-    category: "CAPSTONE",
-    roleSummary: "The client needed a secure, coin-operated charging solution for public spaces. I engineered a complete system combining RFID authentication, solar power management, and automated charging control.",
-    description: "A solar-powered, coin-operated phone charging station with RFID authentication for secure access, automated charging control, and real-time performance monitoring.",
-    tags: ["Arduino Mega", "C++", "RFID", "Servo Motor", "LCD", "Solar Power"],
-    contributions: [
-      "Designed and implemented RFID authentication system for secure user access",
-      "Programmed coin detection mechanism using Arduino Mega",
-      "Integrated solar power management system with battery monitoring",
-      "Built real-time performance monitoring via LCD display",
-      "Developed automated charging control with safety features"
-    ],
-    images: [
-      "images/Capstone/solar_1.jpg",
-      "images/Capstone/solar_2.jpg",
-      "images/Capstone/solar_3.jpg"
-    ],
-    link: null
-  },
-  "iot-monitoring": {
-    title: "IoT Smart Room Monitoring System with Fire Alert & Cloud Integration",
-    status: "DEPLOYED",
-    statusClass: "status--shipped",
-    category: "IoT",
-    roleSummary: "The client required real-time environmental monitoring with cloud integration for safety alerts. I built a comprehensive IoT system with multi-sensor integration and automated hazard detection.",
-    description: "Real-time environmental sensing with cloud data logging via ThingSpeak, plus hazard detection that triggers local alarms and cloud notifications.",
-    tags: ["Arduino R4 WiFi", "C++", "ThingSpeak", "DHT Sensor", "MQ Gas Sensor"],
-    contributions: [
-      "Implemented WiFi connectivity for cloud data transmission",
-      "Integrated multiple sensors (temperature, humidity, gas) for comprehensive monitoring",
-      "Set up ThingSpeak cloud platform for real-time data logging",
-      "Programmed fire detection algorithm with automatic alert system",
-      "Built local alarm system with visual and audio indicators"
-    ],
-    images: [
-      "images/ALARM/alar_2.jpg",
-      "images/ALARM/alarm_1.png",
-      "images/ALARM/alarm_3.jfif",
-      "images/ALARM/alarm_4.png"
-    ],
-    link: null
-  },
-  "obstacle-robot": {
-    title: "Obstacle Avoidance Autonomous Robot",
-    status: "DEPLOYED",
-    statusClass: "status--shipped",
-    category: "ROBOTICS",
-    roleSummary: "The goal was to create an autonomous navigation system for obstacle avoidance. I engineered ultrasonic sensing algorithms and motor control logic for smooth autonomous movement.",
-    description: "An autonomous robot that navigates using ultrasonic distance sensing, with motor movement controlled through an L298N driver.",
-    tags: ["Arduino Uno", "C++", "HC-SR04", "L298N", "DC Motors"],
-    contributions: [
-      "Programmed ultrasonic distance sensing algorithm for obstacle detection",
-      "Implemented motor control logic using L298N driver",
-      "Designed navigation algorithm for smooth obstacle avoidance",
-      "Built and tested robot chassis with motor assembly",
-      "Optimized sensor placement for maximum detection range"
-    ],
-    images: [
-      "images/Automated/car_1.jpg",
-      "images/Automated/car_2.jpg",
-      "images/Automated/car_3.jpg",
-      "images/Automated/car_4.jpg"
-    ],
-    link: null
-  },
   "hotel-savano": {
     title: "Hotel Savano — Hotel Booking Website",
     status: "LIVE",
@@ -225,9 +198,6 @@ const modalCategory = document.querySelector("#modalMeta .project-card__num");
 const modalRoleSummary = document.getElementById("modalRoleSummary");
 const modalTags = document.getElementById("modalTags");
 const modalContributions = document.getElementById("modalContributions");
-const modalMainImage = document.getElementById("modalMainImage");
-const modalThumbnails = document.getElementById("modalThumbnails");
-const modalGallerySide = document.querySelector(".modal__gallery-side");
 const modalGrid = document.querySelector(".modal__grid");
 const modalLink = document.getElementById("modalLink");
 const modalActions = document.getElementById("modalActions");
@@ -270,34 +240,6 @@ function openModal(projectId) {
     })
   );
   
-  // Gallery
-  if (data.images && data.images.length > 0) {
-    modalMainImage.src = data.images[0];
-    modalMainImage.style.display = "block";
-    modalGallerySide.style.display = "flex";
-    modalGrid.classList.remove("gallery-hidden");
-    
-    modalThumbnails.replaceChildren(
-      ...data.images.map((img, index) => {
-        const image = document.createElement('img');
-        image.src = img;
-        image.alt = `Project thumbnail ${index + 1}`;
-        image.dataset.index = index;
-        return image;
-      })
-    );
-    
-    // Add click handlers for thumbnails
-    modalThumbnails.querySelectorAll("img").forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        modalMainImage.src = thumb.src;
-      });
-    });
-  } else {
-    modalGallerySide.style.display = "none";
-    modalGrid.classList.add("gallery-hidden");
-  }
-  
   // Link button
   if (data.link) {
     modalLink.href = data.link;
@@ -315,14 +257,8 @@ function openModal(projectId) {
 }
 
 function closeModal() {
-  modal.classList.remove("active");
-  document.body.style.overflow = "";
+  closeGenericModal(modal, lastFocusedEl);
   document.removeEventListener("keydown", trapFocus);
-
-  // wait for the close transition, then restore focus
-  setTimeout(() => {
-    if (lastFocusedEl) lastFocusedEl.focus();
-  }, 300);
 }
 
 // Add click handlers to project cards
@@ -348,13 +284,6 @@ projectCards.forEach((card) => {
 modalClose.addEventListener("click", closeModal);
 modalBackdrop.addEventListener("click", closeModal);
 
-// Close on escape key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.classList.contains("active")) {
-    closeModal();
-  }
-});
-
 // ===== Work-in-progress notice =====
 const noticeModal = document.getElementById("noticeModal");
 const noticeBackdrop = document.getElementById("noticeBackdrop");
@@ -362,21 +291,24 @@ const noticeClose = document.getElementById("noticeClose");
 const noticeDismiss = document.getElementById("noticeDismiss");
 
 function closeNotice() {
-  noticeModal.classList.remove("active");
-  document.body.style.overflow = "";
+  closeGenericModal(noticeModal);
 }
 
 if (noticeModal) {
-  noticeModal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  openGenericModal(noticeModal, noticeClose);
 }
 
 if (noticeClose) noticeClose.addEventListener("click", closeNotice);
 if (noticeBackdrop) noticeBackdrop.addEventListener("click", closeNotice);
 if (noticeDismiss) noticeDismiss.addEventListener("click", closeNotice);
 
+// Unified Escape key handler for all modals
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && noticeModal && noticeModal.classList.contains("active")) {
-    closeNotice();
+  if (e.key === "Escape") {
+    if (modal.classList.contains("active")) {
+      closeModal();
+    } else if (noticeModal && noticeModal.classList.contains("active")) {
+      closeNotice();
+    }
   }
 });
